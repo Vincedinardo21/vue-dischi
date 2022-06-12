@@ -1,10 +1,7 @@
 <template>
     <section>
         <!-- <h2>ListaDischi</h2> -->
-        <DiscoCard
-            v-for="(item, i) in dischi" :key="i" :discoObject = "item"
-
-        />
+        <DiscoCard v-for="(item, i) in dischi" :key="i" :discoObject="item"/>
     </section>
 </template>
 
@@ -17,8 +14,8 @@ export default {
 
     //componenti del figlio 
     components : {
-    DiscoCard
-},
+        DiscoCard
+    },
   data(){
       return {
           apiUrl : "https://flynn.boolean.careers/exercises/api/array/music",
@@ -32,7 +29,7 @@ export default {
         getDisco(){
         axios.get(this.apiUrl)
         .then((result) => {
-            this.dischi = result.data;
+            this.dischi = result.data.response;
             console.log(result);
             })
         }
@@ -42,5 +39,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-
+    section {
+        background-color: aqua;
+        display: flex;
+        flex-wrap: wrap;
+    }
 </style>
