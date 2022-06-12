@@ -1,7 +1,7 @@
 <template>
     <div class="card">
         <img :src="discoObject.poster" :alt="discoObject.title">
-        <h2>{{discoObject.title}}</h2>
+        <h2>{{discoObject.title.toUpperCase()}}</h2>
         <div>{{discoObject.author}}</div>
         <div>{{discoObject.year}}</div>
     </div>
