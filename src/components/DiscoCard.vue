@@ -20,8 +20,7 @@ export default {
 <style scoped lang="scss">
  .card {
     flex-basis: calc(100% / 6);
-    border: 1px solid black;
-    background-color: aquamarine;
+    background-color: rgb(46, 58, 70);
     min-height: 400px;
     padding: 20px;
     margin: 10px;
@@ -33,6 +32,10 @@ export default {
     h2 {
         color: white;
         margin: 20px 0;
+    }
+
+    div {
+        color: gray;
     }
  }
 </style>

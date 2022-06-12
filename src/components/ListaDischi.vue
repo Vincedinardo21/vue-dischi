@@ -1,7 +1,8 @@
 <template>
     <section>
-        <!-- <h2>ListaDischi</h2> -->
-        <DiscoCard v-for="(item, i) in dischi" :key="i" :discoObject="item"/>
+        <div class="card-container">
+            <DiscoCard v-for="(item, i) in dischi" :key="i" :discoObject="item"/>
+        </div>      
     </section>
 </template>
 
@@ -40,8 +41,15 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
     section {
-        background-color: aqua;
-        display: flex;
-        flex-wrap: wrap;
+        padding: 30px;
+        background-color: rgb(30, 45, 59);
+
+        .card-container {
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
     }
 </style>
