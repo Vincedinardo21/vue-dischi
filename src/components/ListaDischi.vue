@@ -1,11 +1,11 @@
 <template>
     <section>
-        <select name="" id="" @change="getClicked(userSelector)" v-model="userSelector">
+        <select name="Genere" id="Genere" @change="getClicked(userSelector)" v-model="userSelector">
             <MySelector v-for="(element, j) in dischi" :key="j" :genreObject="element"/>
         </select>
         
         <div class="card-container">
-            <DiscoCard v-for="(item, i) in dischi" :key="i" :discoObject="item"/>
+            <DiscoCard v-for="(item, i) in filteredDischi" :key="i" :discoObject="item"/>
         </div>      
     </section>
 </template>
@@ -44,6 +44,14 @@ export default {
         getClicked(element){
             this.dischi.genre = element;
             console.log(element);
+        }
+    },
+    computed: {
+        filteredDischi(){
+            //return this.dischi;
+            return this.dischi.filter(item => {
+                return item.genre.includes(this.userSelector);
+            });
         }
     }
 }
