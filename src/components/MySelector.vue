@@ -1,13 +1,5 @@
-<template>
-    
-        
-    <option :value="genreObject.genre">{{genreObject.genre}}</option>
-            <!-- <option value="rock" @click="$emit('myGenre', inputGenre)">Rock</option>
-            <option value="pop">Pop</option>
-            <option value="jazz">Jazz</option>
-            <option value="metal">Metal</option> -->
-        
-    
+<template>       
+    <option :value="genreObject.genre">{{genreObject.genre}}</option>  
 </template>
 
 <script>
@@ -24,7 +16,9 @@ export default {
     },
   
     methods: {
-        
+        getGenre(){
+            //console.log("Ciao");
+        }
     }
 }
 </script>

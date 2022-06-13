@@ -1,7 +1,7 @@
 <template>
     <section>
-        <select name="" id="">
-            <MySelector v-for="(element, j) in dischi" :key="j" :genreObject="element" @myGenre="getGenre"/>
+        <select name="" id="" @change="getClicked(userSelector)" v-model="userSelector">
+            <MySelector v-for="(element, j) in dischi" :key="j" :genreObject="element"/>
         </select>
         
         <div class="card-container">
@@ -41,8 +41,9 @@ export default {
             console.log(result);
             })
         },
-        getGenre(textUser){
-            this.userSelector = textUser;
+        getClicked(element){
+            this.dischi.genre = element;
+            console.log(element);
         }
     }
 }
