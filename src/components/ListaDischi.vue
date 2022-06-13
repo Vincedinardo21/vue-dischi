@@ -1,7 +1,7 @@
 <template>
     <section>
         <select name="Genere" id="Genere" @change="getClicked(userSelector)" v-model="userSelector">
-            <MySelector v-for="(element, j) in dischi" :key="j" :genreObject="element"/>
+            <MySelector v-for="(element, j) in genreArray" :key="j" :genreObject="element"/>
         </select>
         
         <div class="card-container">
@@ -48,10 +48,16 @@ export default {
     },
     computed: {
         filteredDischi(){
-            //return this.dischi;
             return this.dischi.filter(item => {
                 return item.genre.includes(this.userSelector);
             });
+        },
+
+        // Tentativo di creare un array senza ripetere i generi
+        genreArray(){       
+             return this.dischi.filter((x, i, a) => {
+                 return a.indexOf(x) === i;
+             });
         }
     }
 }
@@ -60,6 +66,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
     section {
+        height: 100vh;
         padding: 30px;
         background-color: rgb(30, 45, 59);
 
@@ -67,7 +74,6 @@ export default {
             width: 80%;
             margin: 0 auto;
             display: flex;
-            justify-content: space-between;
             flex-wrap: wrap;
         }
     }
