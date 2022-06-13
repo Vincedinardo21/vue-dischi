@@ -1,6 +1,9 @@
 <template>
     <section>
-        <MySelector/>
+        <select name="" id="">
+            <MySelector v-for="(element, j) in dischi" :key="j" :genreObject="element" @myGenre="getGenre"/>
+        </select>
+        
         <div class="card-container">
             <DiscoCard v-for="(item, i) in dischi" :key="i" :discoObject="item"/>
         </div>      
@@ -23,7 +26,8 @@ export default {
   data(){
       return {
           apiUrl : "https://flynn.boolean.careers/exercises/api/array/music",
-          dischi : []
+          dischi : [],
+          userSelector: "",
       }
   },
   created(){
@@ -36,6 +40,9 @@ export default {
             this.dischi = result.data.response;
             console.log(result);
             })
+        },
+        getGenre(textUser){
+            this.userSelector = textUser;
         }
     }
 }
