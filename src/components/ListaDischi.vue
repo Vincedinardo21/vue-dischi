@@ -1,5 +1,6 @@
 <template>
     <section>
+        <MySelector/>
         <div class="card-container">
             <DiscoCard v-for="(item, i) in dischi" :key="i" :discoObject="item"/>
         </div>      
@@ -9,14 +10,16 @@
 <script>
 import axios from "axios"
 import DiscoCard from "./DiscoCard.vue";
+import MySelector from "./MySelector.vue";
 
 export default {
     name: 'ListaDischi',
 
     //componenti del figlio 
     components : {
-        DiscoCard
-    },
+    DiscoCard,
+    MySelector
+},
   data(){
       return {
           apiUrl : "https://flynn.boolean.careers/exercises/api/array/music",
